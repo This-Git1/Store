@@ -1,24 +1,27 @@
+import user.AccessLevel;
+import user.User;
+import user.builder.AdminBuilder;
+import user.builder.UserFactory;
 import user.value.Name;
+import user.value.Password;
 
 public class Main {
 
     public static void main(String[] args) {
-        validateName("");
-        validateName("DOn131");
-        validateName("Don__,Juan");
-        validateName("DON Juan");
-        validateName("DON    JUAN");
+
+        AdminBuilder builder = UserFactory.createAdmin();
+        User user = builder
+                .setName("admin")
+                .setEmail("admin@gmail.com")
+                .setAccessLevel(AccessLevel.READ_ONLY)
+                .setPassword(new Password("admin124D"))
+                .build();
+
+        System.out.println(user);
+
 
 
     }
 
-    public static void validateName(String string) {
-        try {
-            Name name = new Name(string);
-            System.out.println(name.getValue());
 
-        } catch (RuntimeException e) {
-            System.err.println(e.getMessage());
-        }
-    }
 }
