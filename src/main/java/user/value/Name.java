@@ -22,7 +22,8 @@ final public class Name extends ValueObject<String> {
 
     private static void validateLength(String value) {
         if (value.length() < MIN_LENGTH || value.length() > MAX_LENGTH) {
-            throw new IllegalArgumentException("Имя должно содержать от 2 до 50 символов");
+            String message = String.format("Имя должно содержать от %d до %d символов", MIN_LENGTH, MAX_LENGTH);
+            throw new IllegalArgumentException(message);
         }
     }
 
