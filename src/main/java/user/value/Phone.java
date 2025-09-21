@@ -12,7 +12,7 @@ final public class Phone extends ValueObject<String> {
 
     private static void validateNotEmpty(String value) {
         if (value == null || value.isEmpty()) {
-            throw new IllegalArgumentException("Имя не может быть пустым");
+            throw new IllegalArgumentException("поле не может быть пустым");
         }
     }
 
